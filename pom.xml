@@ -1,17 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     
-    <parent>
+    <!--parent>
         <artifactId>keycloak-parent</artifactId>
         <groupId>org.keycloak</groupId>
         <version>18.0.0</version>
-    </parent>
+    </parent-->
 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.priax.wildfly</groupId>
     <artifactId>custom-principal-transformer</artifactId>
-    <!--version>1.0.0-FINAL</version-->
+    <version>1.0.0-FINAL</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -20,6 +20,7 @@
 
         <version.org.wildfly.security.wildfly-elytron>1.8.0.Final</version.org.wildfly.security.wildfly-elytron>
         <version.org.wildfly.core>7.0.0.Final</version.org.wildfly.core>
+        <version.keycloak.parent>18.0.0</version.keycloak.parent>
     </properties>
 
     <dependencies>
@@ -38,16 +39,25 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-core</artifactId>
+            <version>${version.keycloak.parent}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-adapter-spi</artifactId>
+            <version>${version.keycloak.parent}</version>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-adapter-core</artifactId>
+            <version>${version.keycloak.parent}</version>
         </dependency>
 
     </dependencies>
-
+    <distributionManagement>
+        <repository>
+        <id>github</id>
+        <name>GitHub OWNER Apache Maven Packages</name>
+        <url>https://maven.pkg.github.com/hikemachado/keycloak-principal-transformer</url>
+        </repository>
+    </distributionManagement>
 </project>
