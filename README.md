@@ -28,7 +28,7 @@ Now, make use of the ```custom-principal-transformer```:
         /subsystem=elytron/security-domain=ManagementDomain:write-attribute(name=pre-realm-principal-transformer,value=myPrincipalTransformer)
 
 
-installing offline mode
+Installing offline mode
 =======================
 
         $ EAP_HOME/bin/jboss-cli.sh
@@ -37,7 +37,7 @@ installing offline mode
 
 Add a module that contains our custom principal transformer to WildFly:
 
-        module add --name=io.priax.wildfly.custom-principal-transformer --resources=\PATH\TO\JAR\custom-principal-transformer-18.0.0.jar --dependencies=org.wildfly.security.elytron,org.wildfly.extension.elytron,org.keycloak.keycloak-wildfly-elytron-oidc-adapter,org.keycloak.keycloak-undertow-adapter,org.keycloak.keycloak-adapter-spi,org.keycloak.keycloak-adapter-core,org.keycloak.keycloak-core,org.keycloak.keycloak-common
+        module add --name=io.priax.wildfly.custom-principal-transformer --resources=\PATH\TO\JAR\custom-principal-transformer-1.0.0-FINAL.jar --dependencies=org.wildfly.security.elytron,org.wildfly.extension.elytron,org.keycloak.keycloak-wildfly-elytron-oidc-adapter,org.keycloak.keycloak-undertow-adapter,org.keycloak.keycloak-adapter-spi,org.keycloak.keycloak-adapter-core,org.keycloak.keycloak-core,org.keycloak.keycloak-common
 
 Add a ```custom-principal-transformer``` in the Elytron subsystem that references this new module and our custom principal transformer class that is contained in this module:
 
@@ -58,7 +58,7 @@ Module.xml example
 <module xmlns="urn:jboss:module:1.1" name="io.priax.wildfly.custom-principal-transformer">
 
     <resources>
-        <resource-root path="custom-principal-transformer-18.0.0.jar"/>
+        <resource-root path="custom-principal-transformer-1.0.0-FINAL.jar"/>
     </resources>
 
     <dependencies>
